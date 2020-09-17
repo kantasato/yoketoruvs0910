@@ -108,7 +108,7 @@ if(nextState !=State.None)
         }
         void UpdateGame()
         {
-            Point mp = PointToClient(MousePosition);
+            //Point mp = PointToClient(MousePosition);
         }
 
         void initPpoc()
@@ -133,6 +133,13 @@ if(nextState !=State.None)
                     startButton.Visible = false;
                     copyrightLabel.Visible = false;
                     hiLabel.Visible = false;
+
+                    for(int i=EnemyIndex;i<ChrMax;i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
+
                     break;
 
                 case State.Gameover:
