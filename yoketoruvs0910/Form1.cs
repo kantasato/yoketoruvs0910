@@ -8,6 +8,21 @@ namespace yoketoruvs0910
     {
         const bool isDebug = true;
 
+        const int PlayrMax = 1;
+        const int EnemyMax = 10;
+        const int ItemMax = 10;
+        const int ChrMax = PlayrMax+EnemyMax+ItemMax;
+        Label[] chrs = new Label[ChrMax];
+        const int PlayerIndex = 0;
+        const int EnemyIndex = PlayerIndex+ PlayrMax;
+        const int Itemdex = EnemyIndex + EnemyMax;
+
+        const string PlayerText = "(・ω・)";
+        const string EnemyText = "◆";
+        const string ItemText = "★";
+
+        static Random rand = new Random();
+
         enum State
         {
             None=-1,
