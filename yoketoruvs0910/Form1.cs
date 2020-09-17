@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace yoketoruvs0910
 {
     public partial class Form1 : Form
     {
+        const bool isDebug = true;
+
         enum State
         {
             None=-1,
@@ -15,6 +18,9 @@ namespace yoketoruvs0910
         }
         State currentState = State.None;
         State nextState = State.Title;
+
+        [DllImport("user32.dll")]
+        public static extern short GetAsyncKeyState(int vKey);
 
         public Form1()
         {
@@ -31,9 +37,9 @@ namespace yoketoruvs0910
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-
+            nextState = State.Game;
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -47,6 +53,19 @@ if(nextState !=State.None)
             {
                 initPpoc();
             }
+
+            if(isDebug)
+            {
+                if (GetAsyncKeyState((int)Keys.O)<0)
+                {
+                    nextState = State.Gameover;
+                }
+               else if (GetAsyncKeyState((int)Keys.C) < 0)
+                {
+                    nextState = State.Clear;
+                }
+            }
+
         }
         void initPpoc()
         {
@@ -56,14 +75,38 @@ if(nextState !=State.None)
             switch (currentState)
             {
                 case State.Title:
-                titlelabel1.Visible = true;
+                    titlelabel.Visible = true;
                     startButton.Visible = true;
                     copyrightLabel.Visible = true;
                     hiLabel.Visible = true;
+                    gameOverLabel.Visible = false;
+                    titlebutton.Visible = false;
+                    clearLabel.Visible = false;
+                    break;
+
+                case State.Game:
+                    titlelabel.Visible = false;
+                    startButton.Visible = false;
+                    copyrightLabel.Visible = false;
+                    hiLabel.Visible = false;
+                    break;
+
+                case State.Gameover:
                     gameOverLabel.Visible = true;
+                    titlebutton.Visible = true;
+                    break;
+
+                case State.Clear:
+                    hiLabel.Visible = true;
+                    titlebutton.Visible = true;
                     clearLabel.Visible = true;
                     break;
             }
+        }
+
+        private void titlebutton_Click(object sender, EventArgs e)
+        {
+            nextState = State.Title;
         }
     }
 }
