@@ -100,7 +100,17 @@ if(nextState !=State.None)
                 }
             }
 
+            if(currentState==State.None)
+            {
+                UpdateGame();
+            }
+
         }
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+        }
+
         void initPpoc()
         {
             currentState = nextState;
