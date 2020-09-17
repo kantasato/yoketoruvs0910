@@ -15,7 +15,7 @@ namespace yoketoruvs0910
         Label[] chrs = new Label[ChrMax];
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex+ PlayrMax;
-        const int Itemdex = EnemyIndex + EnemyMax;
+        const int Itemindex = EnemyIndex + EnemyMax;
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
@@ -40,6 +40,25 @@ namespace yoketoruvs0910
         public Form1()
         {
             InitializeComponent();
+
+            for(int i=0;i<ChrMax;i++)
+            {
+                chrs[i] = new Label();
+                chrs[i] . AutoSize = true;
+                if(i==PlayerIndex)
+                {
+                    chrs[i].Text = PlayerText;
+                }
+                else if(i<Itemindex)
+                {
+                    chrs[i].Text = EnemyText;
+                }
+                else
+                {
+                    chrs[i].Text = ItemText;
+                }
+                Controls.Add(chrs[i]);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
