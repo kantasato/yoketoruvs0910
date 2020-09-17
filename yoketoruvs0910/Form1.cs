@@ -21,8 +21,11 @@ namespace yoketoruvs0910
         const string EnemyText = "◆";
         const string ItemText = "★";
 
+
+
         static Random rand = new Random();
 
+        
         enum State
         {
             None=-1,
@@ -33,6 +36,11 @@ namespace yoketoruvs0910
         }
         State currentState = State.None;
         State nextState = State.Title;
+
+
+        const int SpeedMax = 20;
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
@@ -108,7 +116,7 @@ if(nextState !=State.None)
         }
         void UpdateGame()
         {
-            //Point mp = PointToClient(MousePosition);
+            Point mp = PointToClient(MousePosition);
         }
 
         void initPpoc()
