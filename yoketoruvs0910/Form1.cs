@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
+
 namespace yoketoruvs0910
 {
     public partial class Form1 : Form
@@ -39,7 +40,7 @@ namespace yoketoruvs0910
         State nextState = State.Title;
 
 
-        const int SpeedMax = 20;
+        const int SpeedMax = 5;
         int[] vx = new int[ChrMax];
         int[] vy = new int[ChrMax];
 
@@ -92,7 +93,46 @@ namespace yoketoruvs0910
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-if(nextState !=State.None)
+            Point mp =PointToClient(MousePosition);
+
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width;
+            chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height;
+
+            for(int i= EnemyIndex;i< ChrMax;i++)
+            {
+                chrs[i].Left += vx[i];
+                chrs[i].Top += vy[i];
+
+                if (chrs[i].Left < 0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+                if (chrs[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                if (chrs[i].Right > ClientSize.Width)
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                }
+                if (chrs[i].Bottom > ClientSize.Height)
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                }
+
+                if ((mp.X >= chrs[i].Left)
+                && (mp.X < chrs[i].Right)
+                && (mp.Y >= chrs[i].Top)
+                && (mp.Y < chrs[i].Bottom)
+                )
+                {
+                    nextState = State.Gameover;
+                }
+            }
+
+
+
+            if (nextState !=State.None)
             {
                 initPpoc();
             }
@@ -147,6 +187,8 @@ if(nextState !=State.None)
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                       vx[i]=rand.Next(-SpeedMax,SpeedMax+1);
+                      vy[i] = rand.Next(-SpeedMax, SpeedMax+1);
                     }
 
                     break;

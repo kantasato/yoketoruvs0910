@@ -39,6 +39,7 @@
             this.gameOverLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.titlebutton = new System.Windows.Forms.Button();
+            this.temp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -67,11 +68,11 @@
             // 
             this.copyrightLabel.AutoSize = true;
             this.copyrightLabel.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.copyrightLabel.Location = new System.Drawing.Point(646, 450);
+            this.copyrightLabel.Location = new System.Drawing.Point(607, 450);
             this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(120, 27);
+            this.copyrightLabel.Size = new System.Drawing.Size(164, 27);
             this.copyrightLabel.TabIndex = 2;
-            this.copyrightLabel.Text = "佐藤寛太";
+            this.copyrightLabel.Text = "07  佐藤寛太";
             // 
             // timeLabel
             // 
@@ -140,11 +141,21 @@
             this.titlebutton.UseVisualStyleBackColor = true;
             this.titlebutton.Click += new System.EventHandler(this.titlebutton_Click);
             // 
+            // temp
+            // 
+            this.temp.AutoSize = true;
+            this.temp.Location = new System.Drawing.Point(633, 302);
+            this.temp.Name = "temp";
+            this.temp.Size = new System.Drawing.Size(35, 12);
+            this.temp.TabIndex = 9;
+            this.temp.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 486);
+            this.Controls.Add(this.temp);
             this.Controls.Add(this.titlebutton);
             this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.clearLabel);
@@ -173,6 +184,7 @@
         private System.Windows.Forms.Label gameOverLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button titlebutton;
+        private System.Windows.Forms.Label temp;
     }
 }
 
