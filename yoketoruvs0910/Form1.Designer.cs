@@ -144,7 +144,7 @@
             // temp
             // 
             this.temp.AutoSize = true;
-            this.temp.Location = new System.Drawing.Point(633, 302);
+            this.temp.Location = new System.Drawing.Point(736, 407);
             this.temp.Name = "temp";
             this.temp.Size = new System.Drawing.Size(35, 12);
             this.temp.TabIndex = 9;

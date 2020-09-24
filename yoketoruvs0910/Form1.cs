@@ -120,10 +120,16 @@ namespace yoketoruvs0910
                     vy[i] = -Math.Abs(vy[i]);
                 }
 
-                if ((mp.X >= chrs[i].Left)
-                && (mp.X < chrs[i].Right)
-                && (mp.Y >= chrs[i].Top)
-                && (mp.Y < chrs[i].Bottom)
+                if ((mp.X >= chrs[Itemindex].Left)
+                && (mp.X < chrs[Itemindex].Right)
+                && (mp.Y >= chrs[Itemindex].Top)
+                && (mp.Y < chrs[Itemindex].Bottom)
+                )
+
+                    if ((mp.X >= chrs[EnemyIndex].Left)
+                && (mp.X < chrs[EnemyIndex].Right)
+                && (mp.Y >= chrs[EnemyIndex].Top)
+                && (mp.Y < chrs[EnemyIndex].Bottom)
                 )
                 {
                     nextState = State.Gameover;
