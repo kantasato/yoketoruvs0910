@@ -8,7 +8,11 @@ namespace yoketoruvs0910
 {
     public partial class Form1 : Form
     {
+       
         const bool isDebug = true;
+
+        int itemCount;
+
 
         const int PlayrMax = 1;
         const int EnemyMax = 10;
@@ -24,10 +28,10 @@ namespace yoketoruvs0910
         const string ItemText = "★";
 
 
-
         static Random rand = new Random();
 
-        
+       // leftLabel.Text=
+
         enum State
         {
             None=-1,
@@ -51,8 +55,11 @@ namespace yoketoruvs0910
         {
             InitializeComponent();
 
-            for(int i=0;i<ChrMax;i++)
+
+            for (int i=0;i<ChrMax;i++)
             {
+
+
                 chrs[i] = new Label();
                 chrs[i] . AutoSize = true;
                 if(i==PlayerIndex)
@@ -66,9 +73,11 @@ namespace yoketoruvs0910
                 else
                 {
                     chrs[i].Text = ItemText;
+                    
                 }
                 Controls.Add(chrs[i]);
             }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -98,10 +107,17 @@ namespace yoketoruvs0910
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height;
 
-            for(int i= EnemyIndex;i< ChrMax;i++)
+
+            for (int i= EnemyIndex;i< ChrMax;i++)
             {
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
+
+                itemCount = Itemindex;
+                if(itemCount<=0)
+                {
+                    nextState = State.Clear;
+                }
 
                 if (chrs[i].Left < 0)
                 {
@@ -120,19 +136,25 @@ namespace yoketoruvs0910
                     vy[i] = -Math.Abs(vy[i]);
                 }
 
-                if ((mp.X >= chrs[Itemindex].Left)
-                && (mp.X < chrs[Itemindex].Right)
-                && (mp.Y >= chrs[Itemindex].Top)
-                && (mp.Y < chrs[Itemindex].Bottom)
+               
+                //当たり判定
+                    if ((mp.X >= chrs[i].Left)
+                && (mp.X < chrs[i].Right)
+                && (mp.Y >= chrs[i].Top)
+                && (mp.Y < chrs[i].Bottom)
                 )
-
-                    if ((mp.X >= chrs[EnemyIndex].Left)
-                && (mp.X < chrs[EnemyIndex].Right)
-                && (mp.Y >= chrs[EnemyIndex].Top)
-                && (mp.Y < chrs[EnemyIndex].Bottom)
-                )
-                {
-                    nextState = State.Gameover;
+                { 
+                    //敵か？
+                    if (i < Itemindex)
+                    { 
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        //アイテム
+                        chrs[i].Visible = false;
+                        itemCount = itemCount - 1;
+                    }
                 }
             }
 
