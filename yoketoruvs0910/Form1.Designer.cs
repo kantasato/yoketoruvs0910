@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.titlelabel = new System.Windows.Forms.Label();
-            this.startButton = new System.Windows.Forms.Button();
             this.copyrightLabel = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
             this.leftLabel = new System.Windows.Forms.Label();
@@ -39,7 +38,8 @@
             this.gameOverLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.titlebutton = new System.Windows.Forms.Button();
-            this.temp = new System.Windows.Forms.Label();
+            this.templabel = new System.Windows.Forms.Label();
+            this.startbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -52,17 +52,6 @@
             this.titlelabel.TabIndex = 0;
             this.titlelabel.Text = "ヨケトル";
             this.titlelabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // startButton
-            // 
-            this.startButton.Font = new System.Drawing.Font("Stencil Std", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(286, 302);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(210, 88);
-            this.startButton.TabIndex = 1;
-            this.startButton.Text = "START";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // copyrightLabel
             // 
@@ -141,21 +130,35 @@
             this.titlebutton.UseVisualStyleBackColor = true;
             this.titlebutton.Click += new System.EventHandler(this.titlebutton_Click);
             // 
-            // temp
+            // templabel
             // 
-            this.temp.AutoSize = true;
-            this.temp.Location = new System.Drawing.Point(722, 422);
-            this.temp.Name = "temp";
-            this.temp.Size = new System.Drawing.Size(35, 12);
-            this.temp.TabIndex = 9;
-            this.temp.Text = "label1";
+            this.templabel.AutoSize = true;
+            this.templabel.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.templabel.Location = new System.Drawing.Point(722, 422);
+            this.templabel.Name = "templabel";
+            this.templabel.Size = new System.Drawing.Size(39, 27);
+            this.templabel.TabIndex = 9;
+            this.templabel.Text = "★";
+            this.templabel.Visible = false;
+            // 
+            // startbutton
+            // 
+            this.startbutton.Font = new System.Drawing.Font("MV Boli", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startbutton.Location = new System.Drawing.Point(286, 328);
+            this.startbutton.Name = "startbutton";
+            this.startbutton.Size = new System.Drawing.Size(210, 71);
+            this.startbutton.TabIndex = 10;
+            this.startbutton.Text = "START";
+            this.startbutton.UseVisualStyleBackColor = true;
+            this.startbutton.Click += new System.EventHandler(this.startbutton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 486);
-            this.Controls.Add(this.temp);
+            this.Controls.Add(this.startbutton);
+            this.Controls.Add(this.templabel);
             this.Controls.Add(this.titlebutton);
             this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.clearLabel);
@@ -163,7 +166,6 @@
             this.Controls.Add(this.leftLabel);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.copyrightLabel);
-            this.Controls.Add(this.startButton);
             this.Controls.Add(this.titlelabel);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -175,7 +177,6 @@
         #endregion
 
         private System.Windows.Forms.Label titlelabel;
-        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Label copyrightLabel;
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Label leftLabel;
@@ -184,7 +185,8 @@
         private System.Windows.Forms.Label gameOverLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button titlebutton;
-        private System.Windows.Forms.Label temp;
+        private System.Windows.Forms.Label templabel;
+        private System.Windows.Forms.Button startbutton;
     }
 }
 
