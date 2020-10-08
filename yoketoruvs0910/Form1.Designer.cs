@@ -68,7 +68,7 @@
             // 
             this.timeLabel.AutoSize = true;
             this.timeLabel.Font = new System.Drawing.Font("MS UI Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.timeLabel.Location = new System.Drawing.Point(12, 9);
+            this.timeLabel.Location = new System.Drawing.Point(-3, -1);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(170, 40);
             this.timeLabel.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             this.leftLabel.AutoSize = true;
             this.leftLabel.Font = new System.Drawing.Font("MS UI Gothic", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.leftLabel.Location = new System.Drawing.Point(655, 15);
+            this.leftLabel.Location = new System.Drawing.Point(681, -1);
             this.leftLabel.Name = "leftLabel";
             this.leftLabel.Size = new System.Drawing.Size(90, 34);
             this.leftLabel.TabIndex = 4;
@@ -167,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 486);
+            this.ClientSize = new System.Drawing.Size(772, 487);
             this.Controls.Add(this.scorelabel);
             this.Controls.Add(this.startbutton);
             this.Controls.Add(this.templabel);
