@@ -72,8 +72,7 @@ namespace yoketoruvs0910
                 }
                 else
                 {
-                    chrs[i].Text = ItemText;
-                    
+                    chrs[i].Text = ItemText;   
                 }
                 chrs[i].Font = templabel.Font;
                 Controls.Add(chrs[i]);
@@ -222,6 +221,7 @@ namespace yoketoruvs0910
 
                     for (int i=EnemyIndex;i<ChrMax;i++)
                     {
+                        chrs[i].Visible = true;
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                        vx[i]=rand.Next(-SpeedMax,SpeedMax+1);
