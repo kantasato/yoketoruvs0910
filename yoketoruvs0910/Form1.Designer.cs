@@ -40,6 +40,7 @@
             this.titlebutton = new System.Windows.Forms.Button();
             this.templabel = new System.Windows.Forms.Label();
             this.startbutton = new System.Windows.Forms.Button();
+            this.scorelabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -87,7 +88,7 @@
             // 
             this.hiLabel.AutoSize = true;
             this.hiLabel.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.hiLabel.Location = new System.Drawing.Point(294, 272);
+            this.hiLabel.Location = new System.Drawing.Point(308, 298);
             this.hiLabel.Name = "hiLabel";
             this.hiLabel.Size = new System.Drawing.Size(175, 27);
             this.hiLabel.TabIndex = 5;
@@ -152,11 +153,22 @@
             this.startbutton.UseVisualStyleBackColor = true;
             this.startbutton.Click += new System.EventHandler(this.startbutton_Click);
             // 
+            // scorelabel
+            // 
+            this.scorelabel.AutoSize = true;
+            this.scorelabel.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.scorelabel.Location = new System.Drawing.Point(335, 264);
+            this.scorelabel.Name = "scorelabel";
+            this.scorelabel.Size = new System.Drawing.Size(79, 27);
+            this.scorelabel.TabIndex = 11;
+            this.scorelabel.Text = "Score";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 486);
+            this.Controls.Add(this.scorelabel);
             this.Controls.Add(this.startbutton);
             this.Controls.Add(this.templabel);
             this.Controls.Add(this.titlebutton);
@@ -187,6 +199,7 @@
         private System.Windows.Forms.Button titlebutton;
         private System.Windows.Forms.Label templabel;
         private System.Windows.Forms.Button startbutton;
+        private System.Windows.Forms.Label scorelabel;
     }
 }
 

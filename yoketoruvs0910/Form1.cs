@@ -13,6 +13,8 @@ namespace yoketoruvs0910
 
         int itemCount;
         int timeCount;
+        int score;
+        int hiscore=0;
         const int PlayrMax = 1;
         const int EnemyMax = 10;
         const int ItemMax = 10;
@@ -56,10 +58,8 @@ namespace yoketoruvs0910
 
             
 
-            for (int i=0;i<ChrMax;i++)
+            /*for (int i=0;i<ChrMax;i++)
             {
-
-
                 chrs[i] = new Label();
                 chrs[i] . AutoSize = true;
                 if(i==PlayerIndex)
@@ -77,7 +77,7 @@ namespace yoketoruvs0910
                 }
                 chrs[i].Font = templabel.Font;
                 Controls.Add(chrs[i]);
-            }
+            }*/
            
 
         }
@@ -183,6 +183,7 @@ namespace yoketoruvs0910
                         if (itemCount <0)
                         {
                             nextState = State.Clear;
+                            score = timeCount;
                         }
 
                     }
@@ -206,6 +207,8 @@ namespace yoketoruvs0910
                     gameOverLabel.Visible = false;
                     titlebutton.Visible = false;
                     clearLabel.Visible = false;
+                    scorelabel.Visible = false;
+                    hiLabel.Text = "HiScore " + hiscore;
                     break;
 
                 case State.Game:
@@ -213,6 +216,27 @@ namespace yoketoruvs0910
                     startbutton.Visible = false;
                     copyrightLabel.Visible = false;
                     hiLabel.Visible = false;
+
+                    for (int i = 0; i < ChrMax; i++)
+                    {
+                        chrs[i] = new Label();
+                        chrs[i].AutoSize = true;
+                        if (i == PlayerIndex)
+                        {
+                            chrs[i].Text = PlayerText;
+                        }
+                        else if (i < Itemindex)
+                        {
+                            chrs[i].Text = EnemyText;
+                        }
+                        else
+                        {
+                            chrs[i].Text = ItemText;
+
+                        }
+                        chrs[i].Font = templabel.Font;
+                        Controls.Add(chrs[i]);
+                    }
 
                     for (int i=EnemyIndex;i<ChrMax;i++)
                     {
@@ -223,6 +247,7 @@ namespace yoketoruvs0910
                     }
                     itemCount = Itemindex;
                     timeCount = 100;
+                    
                     break;
 
                 case State.Gameover:
@@ -234,6 +259,13 @@ namespace yoketoruvs0910
                     hiLabel.Visible = true;
                     titlebutton.Visible = true;
                     clearLabel.Visible = true;
+                    scorelabel.Visible = true;
+                    scorelabel.Text = "Score " + score;
+                    if(score>hiscore)
+                    {
+                        hiscore = score;
+                    }
+                    hiLabel.Text = "HiScore " + hiscore;
                     break;
             }
         }
